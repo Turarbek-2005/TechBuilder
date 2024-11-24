@@ -1,4 +1,4 @@
-import bookmark from "../assets/icons/bookmark.png";
+import saved from "../assets/icons/saved.png";
 import home from "../assets/icons/home.png";
 import plus from "../assets/icons/plus.png";
 import profile from "../assets/icons/profile.png";
@@ -11,7 +11,6 @@ import logout from "../assets/icons/logout.png";
 import eyeHide from "../assets/icons/eye-hide.png";
 import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
-
 import iconCpu from "../assets/icons/icon-cpu.png";
 import line from "../assets/icons/line.png";
 import downArrow from "../assets/icons/down-arrow.png";
@@ -33,7 +32,7 @@ import About from "../assets/icons/About.png";
 
 export default {
   play,
-  bookmark,
+  saved,
   home,
   plus,
   profile,

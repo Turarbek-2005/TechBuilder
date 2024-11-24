@@ -7,6 +7,8 @@ import logoSmall from "../assets/images/logo-small.png";
 import empty from "../assets/images/empty.png";
 import bgFon from "../assets/images/bgFon.png";
 import LogoMin from "../assets/images/LogoMin.png";
+import User from "../assets/images/user1.png";
+import Configuration from "../assets/images/Configuration.png";
 
 export default {
   profile,
@@ -18,4 +20,6 @@ export default {
   empty,
   bgFon,
   LogoMin,
+  User,
+  Configuration,
 };

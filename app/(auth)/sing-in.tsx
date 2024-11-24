@@ -38,10 +38,10 @@ const SingIn = () => {
           <Image
             source={images.logo}
             resizeMode="contain"
-            className="w-[115px] h-[35px]"
+            className="w-[326px] h-[71px] -ml-14"
           />
-          <Text className="text-2xl text-white text-psemibold mt-10">
-            Log in to Aora
+          <Text className="text-3xl text-white text-psemibold mt-10">
+            Sing in
           </Text>
           <FormField
             title="Email"
@@ -67,7 +67,7 @@ const SingIn = () => {
               Don't have account
             </Text>
             <Link
-              href="/home"
+              href="/sing-up"
               className="text-lg text-secondary font-psemibold"
             >
               Sing Up

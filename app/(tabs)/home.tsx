@@ -8,9 +8,9 @@ import ComponentsPc from "../../components/ComponentsPc";
 
 const Home = () => {
   return (
-    <SafeAreaView className="bg-primary h-screen">
+    <SafeAreaView className="bg-primary ">
       <ScrollView>
-        <View className="flex px-4 space-y-6 ">
+        <View className="flex px-4 pb-8 space-y-6 ">
           <View className="w-full flex items-center h-full px-4 ">
             <View className=" absolute">
               <Image source={images.bgFon} resizeMode="contain" />

@@ -37,13 +37,13 @@ const SingUp = () => {
           <Image
             source={images.logo}
             resizeMode="contain"
-            className="w-[115px] h-[35px]"
+            className="w-[326px] h-[71px] -ml-14"
           />
-          <Text className="text-2xl text-white text-psemibold mt-10">
-            Sing Up to Aora
+          <Text className="text-3xl text-white text-psemibold mt-10">
+            Sing up
           </Text>
           <FormField
-            title="UserName"
+            title="Username"
             value={form.username}
             handleChangeText={(e: any) => setForm({ ...form, username: e })}
             otherStyles="mt-10"
@@ -72,7 +72,7 @@ const SingUp = () => {
               Have a account already?
             </Text>
             <Link
-              href="/sing-in"
+              href="/home"
               className="text-lg text-secondary font-psemibold"
             >
               Sing in

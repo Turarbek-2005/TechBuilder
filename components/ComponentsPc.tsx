@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import { icons } from "../constants";
 
-const ComponentsPc = ({ title, imageSource }) => {
+const ComponentsPc = ({ title, imageSource }: any) => {
   const [isOpen, setIsOpen] = useState(false); // Состояние для управления списком и поворотом
 
   const handleToggle = () => {
@@ -13,21 +13,15 @@ const ComponentsPc = ({ title, imageSource }) => {
 
   return (
     <View className="flex mt-6 w-full">
-
       <View className="flex flex-row justify-between ">
-<View className="flex flex-row justify-between alagine-center text-center items-center mb-5">
-  <Image 
-  className="mr-4 ml-2"
-   source={imageSource}
-   />
-   <Text className="text-white ">{title}</Text>
-</View>
-<View className="flex flex-row items-center">
-  <Image 
-   source={icons.line}
-   />
-</View>
-</View>
+        <View className="flex flex-row justify-between alagine-center text-center items-center mb-5">
+          <Image className="mr-4 ml-2" source={imageSource} />
+          <Text className="text-white ">{title}</Text>
+        </View>
+        <View className="flex flex-row items-center">
+          <Image source={icons.line} />
+        </View>
+      </View>
 
       <TouchableOpacity
         className="flex flex-row justify-between items-center space-x-4 w-full h-16 px-2.5 bg-black-100  border-2 border-black-200 focus:border-secondary"
@@ -43,21 +37,19 @@ const ComponentsPc = ({ title, imageSource }) => {
       {/* Список */}
       {isOpen && (
         <View className="border-2 border-black-200 ">
-        <FlatList
-        
-          data={options}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => (
-            <View className="px-4 py-2  bg-black-100  ">
-              <Text className="text-white">{item}</Text>
-            </View>
-          )}
-        />
-         </View>
+          <FlatList
+            data={options}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <View className="px-4 py-2  bg-black-100  ">
+                <Text className="text-white">{item}</Text>
+              </View>
+            )}
+          />
+        </View>
       )}
     </View>
   );
 };
 
 export default ComponentsPc;
-
