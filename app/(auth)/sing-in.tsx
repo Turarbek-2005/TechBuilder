@@ -12,7 +12,6 @@ const SingIn = () => {
     email: "",
     password: "",
   });
-
   const [isSubmittig, setIsSubmittig] = useState(false);
 
   const submit = async () => {
@@ -23,6 +22,7 @@ const SingIn = () => {
 
     try {
       const result = await singIn(form.email, form.password);
+      console.log(result);
       router.replace("/home");
     } catch (error: any) {
       Alert.alert("Error", error.message);

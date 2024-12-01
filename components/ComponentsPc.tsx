@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import { icons } from "../constants";
 
-const ComponentsPc = ({ title, imageSource }: any) => {
+const ComponentsPc = ({ title, imageSource, data }: any) => {
   const [isOpen, setIsOpen] = useState(false); // Состояние для управления списком и поворотом
 
   const handleToggle = () => {
+    console.log(data);
     setIsOpen(!isOpen); // Переключение состояния
   };
 
@@ -38,11 +39,11 @@ const ComponentsPc = ({ title, imageSource }: any) => {
       {isOpen && (
         <View className="border-2 border-black-200 ">
           <FlatList
-            data={options}
+            data={data}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <View className="px-4 py-2  bg-black-100  ">
-                <Text className="text-white">{item}</Text>
+                <Text className="text-white">{item.name}</Text>
               </View>
             )}
           />

@@ -1,12 +1,21 @@
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
+import { Text, View, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { images } from "../../constants";
 import { icons } from "../../constants";
 import SearchInput from "../../components/SearchInput";
 import ComponentsPc from "../../components/ComponentsPc";
 
 const Home = () => {
+  const [data, setData] = useState<any>(null);
+  const loadData = () => {
+    const jsonData = require("../../configuration.json");
+    setData(jsonData);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
   return (
     <SafeAreaView className="bg-primary ">
       <ScrollView>
@@ -34,23 +43,76 @@ const Home = () => {
 
             <SearchInput initialQuery={undefined} />
 
-            <ComponentsPc title="Процессор" imageSource={icons.iconCpu} />
-            <ComponentsPc title="Охлаждение" imageSource={icons.Cooling} />
             <ComponentsPc
+              data={data?.components.CPU}
+              title="Процессор"
+              imageSource={icons.iconCpu}
+            />
+            <ComponentsPc
+              data={data?.components.cooling}
+              title="Охлаждение"
+              imageSource={icons.Cooling}
+            />
+            <ComponentsPc
+              data={data?.components.motherboard}
               title="Материнская плата"
               imageSource={icons.Motherboard}
             />
-            <ComponentsPc title="Оперативная память" imageSource={icons.RAM} />
-            <ComponentsPc title="Видеокарта" imageSource={icons.VideoCard} />
-            <ComponentsPc title="Жёсткий диск" imageSource={icons.HardDrive} />
-            <ComponentsPc title="SSD" imageSource={icons.SSD} />
-            <ComponentsPc title="Вентиляторы" imageSource={icons.Fans} />
-            <ComponentsPc title="Корпус" imageSource={icons.Frame} />
-            <ComponentsPc title="Блок питания" imageSource={icons.PowerUnit} />
-            <ComponentsPc title="Операционная система" imageSource={icons.Os} />
-            <ComponentsPc title="Мышь" imageSource={icons.Mouse} />
-            <ComponentsPc title="Клавиатура" imageSource={icons.Keyboard} />
-            <ComponentsPc title="Монитор" imageSource={icons.Monitor} />
+            <ComponentsPc
+              data={data?.components.RAM}
+              title="Оперативная память"
+              imageSource={icons.RAM}
+            />
+            <ComponentsPc
+              data={data?.components.GPU}
+              title="Видеокарта"
+              imageSource={icons.VideoCard}
+            />
+            <ComponentsPc
+              data={data?.components.hardDisk}
+              title="Жёсткий диск"
+              imageSource={icons.HardDrive}
+            />
+            <ComponentsPc
+              data={data?.components.SSD}
+              title="SSD"
+              imageSource={icons.SSD}
+            />
+            <ComponentsPc
+              data={data?.components.fans}
+              title="Вентиляторы"
+              imageSource={icons.Fans}
+            />
+            <ComponentsPc
+              data={data?.components.frame}
+              title="Корпус"
+              imageSource={icons.Frame}
+            />
+            <ComponentsPc
+              data={data?.components.powerUnit}
+              title="Блок питания"
+              imageSource={icons.PowerUnit}
+            />
+            <ComponentsPc
+              data={data?.components.OS}
+              title="Операционная система"
+              imageSource={icons.Os}
+            />
+            <ComponentsPc
+              data={data?.components.mouse}
+              title="Мышь"
+              imageSource={icons.Mouse}
+            />
+            <ComponentsPc
+              data={data?.components.keyboard}
+              title="Клавиатура"
+              imageSource={icons.Keyboard}
+            />
+            <ComponentsPc
+              data={data?.components.monitor}
+              title="Монитор"
+              imageSource={icons.Monitor}
+            />
           </View>
         </View>
       </ScrollView>

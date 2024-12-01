@@ -1,0 +1,653 @@
+{
+  "components": {
+    "CPU": [
+      {
+        "name": "Intel Core i5-12400",
+        "price": 200,
+        "cores": 6,
+        "threads": 12,
+        "baseClock": "2.5 GHz",
+        "boostClock": "4.4 GHz",
+        "socket": "LGA 1700"
+      },
+      {
+        "name": "AMD Ryzen 5 5600X",
+        "price": 220,
+        "cores": 6,
+        "threads": 12,
+        "baseClock": "3.7 GHz",
+        "boostClock": "4.6 GHz",
+        "socket": "AM4"
+      },
+      {
+        "name": "Intel Core i7-13700K",
+        "price": 400,
+        "cores": 16,
+        "threads": 24,
+        "baseClock": "3.4 GHz",
+        "boostClock": "5.4 GHz",
+        "socket": "LGA 1700"
+      },
+      {
+        "name": "AMD Ryzen 7 5800X3D",
+        "price": 350,
+        "cores": 8,
+        "threads": 16,
+        "baseClock": "3.4 GHz",
+        "boostClock": "4.5 GHz",
+        "socket": "AM4"
+      },
+      {
+        "name": "Intel Core i3-13100F",
+        "price": 120,
+        "cores": 4,
+        "threads": 8,
+        "baseClock": "3.4 GHz",
+        "boostClock": "4.5 GHz",
+        "socket": "LGA 1700"
+      }
+    ],
+    "cooling": [
+      {
+        "name": "Noctua NH-D15",
+        "price": 90,
+        "type": "Air Cooler",
+        "fanCount": 2,
+        "noiseLevel": "19.2 dB",
+        "maxTDP": "220W"
+      },
+      {
+        "name": "Corsair iCUE H100i Elite",
+        "price": 150,
+        "type": "Liquid Cooler",
+        "fanCount": 2,
+        "noiseLevel": "20 dB",
+        "maxTDP": "250W"
+      },
+      {
+        "name": "Cooler Master Hyper 212",
+        "price": 50,
+        "type": "Air Cooler",
+        "fanCount": 1,
+        "noiseLevel": "26 dB",
+        "maxTDP": "150W"
+      },
+      {
+        "name": "NZXT Kraken X63",
+        "price": 130,
+        "type": "Liquid Cooler",
+        "fanCount": 2,
+        "noiseLevel": "21 dB",
+        "maxTDP": "300W"
+      },
+      {
+        "name": "Deepcool AK620",
+        "price": 70,
+        "type": "Air Cooler",
+        "fanCount": 2,
+        "noiseLevel": "18 dB",
+        "maxTDP": "260W"
+      }
+    ],
+    "motherboard": [
+      {
+        "name": "ASUS ROG Strix B550-F",
+        "price": 180,
+        "socket": "AM4",
+        "chipset": "B550",
+        "formFactor": "ATX",
+        "RAMSlots": 4
+      },
+      {
+        "name": "MSI Z690 PRO",
+        "price": 240,
+        "socket": "LGA 1700",
+        "chipset": "Z690",
+        "formFactor": "ATX",
+        "RAMSlots": 4
+      },
+      {
+        "name": "Gigabyte A520M DS3H",
+        "price": 70,
+        "socket": "AM4",
+        "chipset": "A520",
+        "formFactor": "Micro-ATX",
+        "RAMSlots": 2
+      },
+      {
+        "name": "ASRock B660M Pro RS",
+        "price": 120,
+        "socket": "LGA 1700",
+        "chipset": "B660",
+        "formFactor": "Micro-ATX",
+        "RAMSlots": 4
+      },
+      {
+        "name": "ASUS TUF Gaming X570",
+        "price": 200,
+        "socket": "AM4",
+        "chipset": "X570",
+        "formFactor": "ATX",
+        "RAMSlots": 4
+      }
+    ],
+    "RAM": [
+      {
+        "name": "Corsair Vengeance LPX 16GB",
+        "price": 70,
+        "type": "DDR4",
+        "speed": "3200 MHz",
+        "capacity": "16 GB"
+      },
+      {
+        "name": "G.SKILL Trident Z RGB 32GB",
+        "price": 150,
+        "type": "DDR4",
+        "speed": "3600 MHz",
+        "capacity": "32 GB"
+      },
+      {
+        "name": "Kingston Fury Beast 8GB",
+        "price": 30,
+        "type": "DDR4",
+        "speed": "2666 MHz",
+        "capacity": "8 GB"
+      },
+      {
+        "name": "Crucial Ballistix 16GB",
+        "price": 60,
+        "type": "DDR4",
+        "speed": "3000 MHz",
+        "capacity": "16 GB"
+      },
+      {
+        "name": "Patriot Viper 16GB",
+        "price": 80,
+        "type": "DDR5",
+        "speed": "4800 MHz",
+        "capacity": "16 GB"
+      }
+    ],
+    "GPU": [
+      {
+        "name": "NVIDIA GeForce RTX 3060",
+        "price": 400,
+        "memory": "12 GB",
+        "type": "GDDR6",
+        "boostClock": "1777 MHz",
+        "powerConsumption": "170W"
+      },
+      {
+        "name": "AMD Radeon RX 6700 XT",
+        "price": 480,
+        "memory": "12 GB",
+        "type": "GDDR6",
+        "boostClock": "2424 MHz",
+        "powerConsumption": "230W"
+      },
+      {
+        "name": "NVIDIA GeForce RTX 4090",
+        "price": 1600,
+        "memory": "24 GB",
+        "type": "GDDR6X",
+        "boostClock": "2520 MHz",
+        "powerConsumption": "450W"
+      },
+      {
+        "name": "AMD Radeon RX 6600",
+        "price": 280,
+        "memory": "8 GB",
+        "type": "GDDR6",
+        "boostClock": "2491 MHz",
+        "powerConsumption": "132W"
+      },
+      {
+        "name": "NVIDIA GeForce GTX 1660 Super",
+        "price": 200,
+        "memory": "6 GB",
+        "type": "GDDR6",
+        "boostClock": "1785 MHz",
+        "powerConsumption": "125W"
+      }
+    ],
+    "hardDisk": [
+      {
+        "name": "Seagate Barracuda 1TB",
+        "price": 50,
+        "capacity": "1 TB",
+        "speed": "7200 RPM",
+        "interface": "SATA 6Gb/s"
+      },
+      {
+        "name": "Western Digital Blue 2TB",
+        "price": 70,
+        "capacity": "2 TB",
+        "speed": "5400 RPM",
+        "interface": "SATA 6Gb/s"
+      },
+      {
+        "name": "Toshiba X300 4TB",
+        "price": 120,
+        "capacity": "4 TB",
+        "speed": "7200 RPM",
+        "interface": "SATA 6Gb/s"
+      },
+      {
+        "name": "Seagate FireCuda 2TB",
+        "price": 100,
+        "capacity": "2 TB",
+        "speed": "7200 RPM",
+        "interface": "SATA 6Gb/s"
+      },
+      {
+        "name": "Western Digital Black 6TB",
+        "price": 250,
+        "capacity": "6 TB",
+        "speed": "7200 RPM",
+        "interface": "SATA 6Gb/s"
+      }
+    ],
+    "SSD": [
+      {
+        "name": "Samsung 970 EVO Plus 500GB",
+        "price": 80,
+        "capacity": "500 GB",
+        "type": "NVMe",
+        "speed": "3500 MB/s"
+      },
+      {
+        "name": "Kingston A2000 1TB",
+        "price": 100,
+        "capacity": "1 TB",
+        "type": "NVMe",
+        "speed": "2200 MB/s"
+      },
+      {
+        "name": "Crucial MX500 1TB",
+        "price": 90,
+        "capacity": "1 TB",
+        "type": "SATA",
+        "speed": "560 MB/s"
+      },
+      {
+        "name": "WD Black SN850X 2TB",
+        "price": 200,
+        "capacity": "2 TB",
+        "type": "NVMe",
+        "speed": "7000 MB/s"
+      },
+      {
+        "name": "Samsung 980 Pro 1TB",
+        "price": 120,
+        "capacity": "1 TB",
+        "type": "NVMe",
+        "speed": "6900 MB/s"
+      }
+    ],
+    "fans": [
+      {
+        "name": "Noctua NF-A12x25",
+        "price": 30,
+        "size": "120mm",
+        "speed": "2000 RPM",
+        "noiseLevel": "22 dB"
+      },
+      {
+        "name": "Corsair LL120 RGB",
+        "price": 35,
+        "size": "120mm",
+        "speed": "1500 RPM",
+        "noiseLevel": "24.8 dB"
+      },
+      {
+        "name": "Cooler Master SickleFlow 120",
+        "price": 15,
+        "size": "120mm",
+        "speed": "1800 RPM",
+        "noiseLevel": "27 dB"
+      },
+      {
+        "name": "Arctic F12 PWM",
+        "price": 10,
+        "size": "120mm",
+        "speed": "1350 RPM",
+        "noiseLevel": "22.5 dB"
+      },
+      {
+        "name": "Thermaltake Riing Trio 14",
+        "price": 40,
+        "size": "140mm",
+        "speed": "1500 RPM",
+        "noiseLevel": "23 dB"
+      }
+    ],
+    "frame": [
+      {
+        "name": "NZXT H510",
+        "price": 100,
+        "formFactor": "Mid Tower",
+        "material": "Steel",
+        "coolingSupport": "Air and Liquid"
+      },
+      {
+        "name": "Cooler Master MasterBox Q300L",
+        "price": 60,
+        "formFactor": "Micro-ATX",
+        "material": "Steel and Plastic",
+        "coolingSupport": "Air"
+      },
+      {
+        "name": "Corsair 4000D Airflow",
+        "price": 85,
+        "formFactor": "Mid Tower",
+        "material": "Steel and Glass",
+        "coolingSupport": "Air and Liquid"
+      },
+      {
+        "name": "Fractal Design Meshify C",
+        "price": 110,
+        "formFactor": "Mid Tower",
+        "material": "Steel and Glass",
+        "coolingSupport": "Air and Liquid"
+      },
+      {
+        "name": "Lian Li O11 Dynamic",
+        "price": 130,
+        "formFactor": "Mid Tower",
+        "material": "Aluminum and Glass",
+        "coolingSupport": "Liquid"
+      }
+    ],
+    "powerUnit": [
+      {
+        "name": "Corsair RM750x",
+        "price": 120,
+        "power": "750W",
+        "efficiency": "80+ Gold",
+        "modular": "Fully Modular"
+      },
+      {
+        "name": "EVGA 600 W1",
+        "price": 40,
+        "power": "600W",
+        "efficiency": "80+ White",
+        "modular": "Non-Modular"
+      },
+      {
+        "name": "Seasonic Focus GX-850",
+        "price": 130,
+        "power": "850W",
+        "efficiency": "80+ Gold",
+        "modular": "Fully Modular"
+      },
+      {
+        "name": "Cooler Master MWE Gold 550",
+        "price": 75,
+        "power": "550W",
+        "efficiency": "80+ Gold",
+        "modular": "Semi-Modular"
+      },
+      {
+        "name": "Thermaltake Smart 500W",
+        "price": 50,
+        "power": "500W",
+        "efficiency": "80+ White",
+        "modular": "Non-Modular"
+      }
+    ],
+    "wifi": [
+      {
+        "name": "TP-Link Archer T6E",
+        "price": 40,
+        "interface": "PCIe",
+        "speed": "867 Mbps",
+        "bands": "Dual Band"
+      },
+      {
+        "name": "ASUS PCE-AX3000",
+        "price": 60,
+        "interface": "PCIe",
+        "speed": "2402 Mbps",
+        "bands": "Dual Band"
+      },
+      {
+        "name": "Netgear A6210",
+        "price": 35,
+        "interface": "USB",
+        "speed": "1200 Mbps",
+        "bands": "Dual Band"
+      },
+      {
+        "name": "TP-Link Archer T3U",
+        "price": 20,
+        "interface": "USB",
+        "speed": "867 Mbps",
+        "bands": "Dual Band"
+      },
+      {
+        "name": "Intel AX200",
+        "price": 30,
+        "interface": "M.2",
+        "speed": "2402 Mbps",
+        "bands": "Dual Band"
+      }
+    ],
+    "soundCard": [
+      {
+        "name": "Creative Sound Blaster Z",
+        "price": 90,
+        "channels": "5.1",
+        "interface": "PCIe",
+        "sampleRate": "192 kHz"
+      },
+      {
+        "name": "ASUS Xonar SE",
+        "price": 50,
+        "channels": "5.1",
+        "interface": "PCIe",
+        "sampleRate": "192 kHz"
+      },
+      {
+        "name": "Focusrite Scarlett 2i2",
+        "price": 160,
+        "channels": "2",
+        "interface": "USB",
+        "sampleRate": "192 kHz"
+      },
+      {
+        "name": "Behringer UMC22",
+        "price": 40,
+        "channels": "2",
+        "interface": "USB",
+        "sampleRate": "48 kHz"
+      },
+      {
+        "name": "Sound Blaster Audigy FX",
+        "price": 30,
+        "channels": "5.1",
+        "interface": "PCIe",
+        "sampleRate": "96 kHz"
+      }
+    ],
+    "OS": [
+      {
+        "name": "Windows 10 Home",
+        "price": 100,
+        "type": "64-bit",
+        "license": "Retail"
+      },
+      {
+        "name": "Windows 11 Pro",
+        "price": 140,
+        "type": "64-bit",
+        "license": "OEM"
+      },
+      {
+        "name": "Ubuntu 22.04 LTS",
+        "price": 0,
+        "type": "64-bit",
+        "license": "Open Source"
+      },
+      {
+        "name": "Fedora Workstation",
+        "price": 0,
+        "type": "64-bit",
+        "license": "Open Source"
+      },
+      {
+        "name": "macOS Ventura",
+        "price": 0,
+        "type": "64-bit",
+        "license": "Proprietary"
+      }
+    ],
+    "mouse": [
+      {
+        "name": "Logitech G502 HERO",
+        "price": 50,
+        "dpi": "25600",
+        "buttons": "11",
+        "connection": "Wired"
+      },
+      {
+        "name": "Razer DeathAdder V2",
+        "price": 70,
+        "dpi": "20000",
+        "buttons": "8",
+        "connection": "Wired"
+      },
+      {
+        "name": "SteelSeries Rival 3",
+        "price": 30,
+        "dpi": "8500",
+        "buttons": "6",
+        "connection": "Wired"
+      },
+      {
+        "name": "Corsair Katar Pro Wireless",
+        "price": 40,
+        "dpi": "10000",
+        "buttons": "6",
+        "connection": "Wireless"
+      },
+      {
+        "name": "Logitech MX Master 3",
+        "price": 100,
+        "dpi": "4000",
+        "buttons": "7",
+        "connection": "Wireless"
+      }
+    ],
+    "keyboard": [
+      {
+        "name": "SteelSeries Apex Pro",
+        "price": 180,
+        "type": "Mechanical",
+        "switches": "OmniPoint",
+        "connection": "Wired"
+      },
+      {
+        "name": "Razer BlackWidow V3",
+        "price": 140,
+        "type": "Mechanical",
+        "switches": "Razer Green",
+        "connection": "Wired"
+      },
+      {
+        "name": "Logitech G Pro Keyboard",
+        "price": 130,
+        "type": "Mechanical",
+        "switches": "GX Blue",
+        "connection": "Wired"
+      },
+      {
+        "name": "Corsair K95 RGB Platinum",
+        "price": 200,
+        "type": "Mechanical",
+        "switches": "Cherry MX Speed",
+        "connection": "Wired"
+      },
+      {
+        "name": "Keychron K2",
+        "price": 90,
+        "type": "Mechanical",
+        "switches": "Gateron Brown",
+        "connection": "Wireless"
+      }
+    ],
+    "monitor": [
+      {
+        "name": "LG UltraGear 27GN950",
+        "price": 800,
+        "size": "27 inches",
+        "resolution": "3840x2160",
+        "refreshRate": "144Hz"
+      },
+      {
+        "name": "Dell Alienware AW2521H",
+        "price": 700,
+        "size": "25 inches",
+        "resolution": "1920x1080",
+        "refreshRate": "360Hz"
+      },
+      {
+        "name": "ASUS TUF Gaming VG27AQ",
+        "price": 400,
+        "size": "27 inches",
+        "resolution": "2560x1440",
+        "refreshRate": "165Hz"
+      },
+      {
+        "name": "Samsung Odyssey G7",
+        "price": 600,
+        "size": "32 inches",
+        "resolution": "2560x1440",
+        "refreshRate": "240Hz"
+      },
+      {
+        "name": "Acer Nitro XV272U",
+        "price": 350,
+        "size": "27 inches",
+        "resolution": "2560x1440",
+        "refreshRate": "144Hz"
+      }
+    ],
+    "headset": [
+      {
+        "name": "HyperX Cloud II",
+        "price": 80,
+        "type": "Over-Ear",
+        "connection": "Wired",
+        "microphone": "Yes"
+      },
+      {
+        "name": "Logitech G Pro X",
+        "price": 120,
+        "type": "Over-Ear",
+        "connection": "Wired",
+        "microphone": "Yes"
+      },
+      {
+        "name": "SteelSeries Arctis 7",
+        "price": 150,
+        "type": "Over-Ear",
+        "connection": "Wireless",
+        "microphone": "Yes"
+      },
+      {
+        "name": "Razer Kraken X",
+        "price": 50,
+        "type": "Over-Ear",
+        "connection": "Wired",
+        "microphone": "Yes"
+      },
+      {
+        "name": "Corsair HS70 Pro",
+        "price": 100,
+        "type": "Over-Ear",
+        "connection": "Wireless",
+        "microphone": "Yes"
+      }
+    ]
+  }
+}

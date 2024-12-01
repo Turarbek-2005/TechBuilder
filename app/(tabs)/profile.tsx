@@ -2,10 +2,9 @@ import { View, Text, Image, ScrollView } from "react-native";
 import { images } from "../../constants";
 import { icons } from "../../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Configuration from "../../components/Configuration";
 import React from "react";
 import { Link } from "expo-router";
-
+import Configuration from "../../components/Configuration";
 const Profile = () => {
   return (
     <SafeAreaView className="bg-primary h-full ">

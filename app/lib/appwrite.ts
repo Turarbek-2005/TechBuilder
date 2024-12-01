@@ -1,14 +1,12 @@
 import { Account, Avatars, Client, Databases, ID } from "react-native-appwrite";
-
-
+import UUID from "react-native-uuid";
 export const appwriteConfig = {
   endpoint: "https://cloud.appwrite.io/v1",
-  platform: "com.aora.aora",
-  projectId: "6737a78b0029ed349754",
-  databaseId: "6738e4340023e0288cfb",
-  userCollectionId: "6738e44d0012470b1dd6",
-  videoCollectionId: "6738e47f00397f993fc0",
-  storageId: "6738e5ab001e0ded45de",
+  platform: "com.company.techbuilder",
+  projectId: "671f3cae0031331adafa",
+  databaseId: "674b21190017fdd904db",
+  userCollectionId: "674b2174000afaa399dd",
+  storageId: "674b21310023fc97d80d",
 };
 
 const client = new Client();
@@ -19,7 +17,6 @@ client
   .setPlatform(appwriteConfig.platform);
 
 const account = new Account(client);
-const avatars = new Avatars(client);
 const databases = new Databases(client);
 
 export const createUser = async (
@@ -28,46 +25,55 @@ export const createUser = async (
   username: string
 ) => {
   try {
-    const newAccount = await account.create(
-      ID.unique(),
-      email,
-      password,
-      username
-    );
-
-    if (!newAccount) throw Error;
-
-    const avatarUrl = avatars.getInitials(username);
-
-    await singIn(email, password);
-
-    const newUser = await databases.createDocument(
-      appwriteConfig.databaseId,
-      appwriteConfig.userCollectionId,
-      ID.unique(),
-      {
-        username,
-        email,
-        avatar: avatarUrl,
-        accountId: newAccount.$id,
+    try {
+      await account.create(UUID.v4(), email, password, username);
+    } catch (error: any) {
+      console.warn("Warning: Error during account creation:", error.message);
+      if (error.type === "account_already_exists") {
+        console.log("Account already exists, proceeding...");
+      } else {
+        throw error;
       }
-    );
-    return newUser;
+    }
+
+    try {
+      await singIn(email, password);
+      console.log("User signed in successfully.");
+    } catch (error: any) {
+      console.warn("Warning: Error during sign-in:", error.message);
+    }
   } catch (error: any) {
-    console.log(error);
-    throw new Error(error);
+    console.error("Critical Error:", error.message || error);
+    throw new Error(error.message || error);
   }
 };
 
 export async function singIn(email: string, password: string) {
   try {
-    const session = await account.createSession(email, password);
+    const currentSession = await account.get();
+    console.log("Current session:", currentSession);
 
-    if (!session) throw Error;
+    if (currentSession) {
+      console.log("Previous session exists. Deleting...");
+      await account.deleteSession("current");
+      console.log("Previous session deleted.");
+    } else {
+      console.log("No active session found.");
+    }
+  } catch (error: any) {
+    console.error("Error during sign-in:", error.message || error);
+    throw new Error(error.message || "Failed to sign in.");
+  }
+
+  try {
+    const session = await account.createEmailPasswordSession(email, password);
+    console.log("New session created:", session);
+
+    const userData = await account.get();
+    console.log("User data:", userData);
 
     return session;
   } catch (error: any) {
     console.log(error);
-    throw new Error(error);
   }
 }
