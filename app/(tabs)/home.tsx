@@ -18,10 +18,6 @@ const Home = () => {
   }, []);
   const [isOpen, setIsOpen] = useState(false);
 
-  // const basketToggle = () =>{
-  //   setIsOpen(true);
-  // }
-
   const [totalPrice, setTotalPrice] = useState(0);
   const [sendData, setSendData] = useState<Array<any>>([]);
 
@@ -67,35 +63,15 @@ const Home = () => {
               <Text className="text-2xl font-psemibold text-white ">
                 Конфигуратор ПК
               </Text>
-              {/* <Text className="indent-5 font-pmedium text-center text-white my-7">
+              <Text className="indent-5 font-pmedium text-center text-white my-7">
                 Позволяет собрать компьютер, о котором вы мечтали. Изменить
                 комплектацию представленных на сайте сборок, узнать цену онлайн,
                 сравнить характеристики. Оформить заказ и получить готовый ПК с
                 абсолютно бесплатной профессиональной сборкой. Продвинутый
                 онлайн-сервис для модификации ПК
-              </Text> */}
+              </Text>
             </View>
-            <View className=" py-3.5 px-4 flex flex-row justify-between  bottom-0 w-full bg-black-200 h-20 ">
-              <View className="text-center h-full ">
-                <Text className="text-secondary  text-2xl h-full ">
-                  {totalPrice} тенге{" "}
-                </Text>
-              </View>
 
-              <TouchableOpacity
-                className="w-24 h-10 bg-red-500 flex items-center justify-center rounded-lg"
-                onPress={handleClearPrice}
-              >
-                <Text className="text-white">Очистить цену</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                onPress={addConfiguration}
-                className="w-24 h-10 bg-secondary flex items-center justify-center rounded-lg"
-              >
-                <Text className="text-center">Сохронить</Text>
-              </TouchableOpacity>
-            </View>
             <SearchInput initialQuery={undefined} />
 
             <ComponentsPc
@@ -105,79 +81,79 @@ const Home = () => {
               imageSource={icons.iconCpu}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.cooling}
               title="Охлаждение"
               imageSource={icons.Cooling}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.motherboard}
               title="Материнская плата"
               imageSource={icons.Motherboard}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.RAM}
               title="Оперативная память"
               imageSource={icons.RAM}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.GPU}
               title="Видеокарта"
               imageSource={icons.VideoCard}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.hardDisk}
               title="Жёсткий диск"
               imageSource={icons.HardDrive}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.SSD}
               title="SSD"
               imageSource={icons.SSD}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.fans}
               title="Вентиляторы"
               imageSource={icons.Fans}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.frame}
               title="Корпус"
               imageSource={icons.Frame}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.powerUnit}
               title="Блок питания"
               imageSource={icons.PowerUnit}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.OS}
               title="Операционная система"
               imageSource={icons.Os}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.mouse}
               title="Мышь"
               imageSource={icons.Mouse}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.keyboard}
               title="Клавиатура"
               imageSource={icons.Keyboard}
             />
             <ComponentsPc
-              onToggle={(price: number) => handleAddPrice(price)}
+              onToggle={(item: any) => handleAddPrice(item)}
               data={data?.components.monitor}
               title="Монитор"
               imageSource={icons.Monitor}
@@ -185,7 +161,29 @@ const Home = () => {
           </View>
         </View>
       </ScrollView>
-      {isOpen && ""}
+      {isOpen && (
+        <View className=" py-3.5 px-4 flex flex-row justify-between absolute bottom-0 w-full bg-black-200 h-20 ">
+          <View className="text-center h-full ">
+            <Text className="text-secondary  text-2xl h-full ">
+              {totalPrice} тенге{" "}
+            </Text>
+          </View>
+
+          <TouchableOpacity
+            className="w-24 h-10 bg-red-500 flex items-center justify-center rounded-lg"
+            onPress={handleClearPrice}
+          >
+            <Text className="text-white">Очистить цену</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={addConfiguration}
+            className="w-24 h-10 bg-secondary flex items-center justify-center rounded-lg"
+          >
+            <Text className="text-center">Сохранить</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </SafeAreaView>
   );
 };
