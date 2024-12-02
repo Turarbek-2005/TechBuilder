@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import { icons } from "../constants";
 
-const ComponentsPc = ({ title, imageSource, data }: any) => {
+const ComponentsPc = ({ onToggle, title, imageSource, data }: any) => {
   const [isOpen, setIsOpen] = useState(false); // Состояние для управления списком и поворотом
 
   const handleToggle = () => {
-    console.log(data);
     setIsOpen(!isOpen); // Переключение состояния
   };
 
@@ -19,9 +18,9 @@ const ComponentsPc = ({ title, imageSource, data }: any) => {
           <Image className="mr-4 ml-2" source={imageSource} />
           <Text className="text-white ">{title}</Text>
         </View>
-        <View className="flex flex-row items-center">
+        {/* <View className="flex flex-row items-center">
           <Image source={icons.line} />
-        </View>
+        </View> */}
       </View>
 
       <TouchableOpacity
@@ -42,9 +41,12 @@ const ComponentsPc = ({ title, imageSource, data }: any) => {
             data={data}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
-              <View className="px-4 py-2  bg-black-100  ">
+              <TouchableOpacity
+                className="px-4 py-2  bg-black-100"
+                onPress={() => onToggle(item)}
+              >
                 <Text className="text-white">{item.name}</Text>
-              </View>
+              </TouchableOpacity>
             )}
           />
         </View>

@@ -1,11 +1,16 @@
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { images } from "../../constants";
 import { icons } from "../../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "expo-router";
 import Configuration from "../../components/Configuration";
 const Profile = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <SafeAreaView className="bg-primary h-full ">
       <ScrollView>
@@ -31,10 +36,38 @@ const Profile = () => {
               </Text>
             </View>
           </View>
-          <Configuration />
-          <Configuration />
+          <Configuration onToggle={handleToggle} />
+          <Configuration onToggle={handleToggle} />
         </View>
       </ScrollView>
+      {isOpen && (
+        <View className="flex absolute bottom-0 w-full bg-black-200 ">
+          <View className="pt-1 px-7 pb-7">
+            <View className="flex  flex-row justify-between pt-3">
+              <Text className="text-white text-lg">1000</Text>
+              <Text className="text-white mr-2.5 text-lg">1000</Text>
+            </View>
+            <View className="flex  flex-row justify-between pt-3">
+              <Text className="text-white text-lg">1000</Text>
+              <Text className="text-white mr-2.5 text-lg">1000</Text>
+            </View>
+          </View>
+
+          <View className="flex flex-row justify-between h-20 bg-black-300 py-3.5 px-4">
+            <View>
+              <Text className="text-secondary text-2xl">5000 тенге </Text>
+            </View>
+
+            <TouchableOpacity
+              className="bg-black-400 w-12 h-10  rounded-lg shadow-md flex items-center justify-center"
+              onPress={handleToggle}
+            >
+              {/* Зелёная линия */}
+              <View className="w-[17px] h-0.5 bg-secondary" />
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
     </SafeAreaView>
   );
 };

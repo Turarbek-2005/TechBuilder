@@ -4,8 +4,8 @@ export const appwriteConfig = {
   endpoint: "https://cloud.appwrite.io/v1",
   platform: "com.company.techbuilder",
   projectId: "671f3cae0031331adafa",
-  databaseId: "674b21190017fdd904db",
-  userCollectionId: "674b2174000afaa399dd",
+  databaseId: "674ba93100294e10a9bd",
+  ConfiguratinCollectionId: "674ca40b0007b7b36ca0",
   storageId: "674b21310023fc97d80d",
 };
 
@@ -16,8 +16,25 @@ client
   .setProject(appwriteConfig.projectId)
   .setPlatform(appwriteConfig.platform);
 
-const account = new Account(client);
+export const account = new Account(client);
 const databases = new Databases(client);
+
+export const addConfigurationToBase = (data: any) => {
+  try {
+    const formattedData = JSON.stringify(data);
+    const response = databases.createDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.ConfiguratinCollectionId,
+      ID.unique(),
+      {
+        cpu: formattedData,
+      }
+    );
+    return response;
+  } catch (error: any) {
+    console.log(error);
+  }
+};
 
 export const createUser = async (
   email: string,
