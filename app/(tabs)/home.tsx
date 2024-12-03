@@ -1,4 +1,11 @@
-import { Text, View, Image, ScrollView, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useEffect, useState } from "react";
 import { images } from "../../constants";
@@ -37,14 +44,20 @@ const Home = () => {
   const addConfiguration = async () => {
     const user = await account.get();
     try {
-      const sendDataFormatted = {
-        configurations: sendData,
-        userId: user.$id,
-      };
-      const result = await addConfigurationToBase(sendDataFormatted);
-      console.log("Данные успешно сохранены:", result);
+      if (sendData.length) {
+        const sendDataFormatted = {
+          configurations: sendData,
+          userId: user.$id,
+        };
+        const result = await addConfigurationToBase(sendDataFormatted);
+        console.log("Данные успешно сохранены:", result);
+      }
     } catch (error) {
       console.error("Ошибка при сохранении данных:", error);
+    } finally {
+      setIsOpen(false);
+      setTotalPrice(0);
+      setSendData([]);
     }
   };
   return (
@@ -72,7 +85,10 @@ const Home = () => {
               </Text>
             </View>
 
-            <SearchInput initialQuery={undefined} />
+            <SearchInput
+              onToggle={(item: any) => handleAddPrice(item)}
+              initialQuery={undefined}
+            />
 
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
@@ -162,26 +178,46 @@ const Home = () => {
         </View>
       </ScrollView>
       {isOpen && (
-        <View className=" py-3.5 px-4 flex flex-row justify-between absolute bottom-0 w-full bg-black-200 h-20 ">
-          <View className="text-center h-full ">
-            <Text className="text-secondary  text-2xl h-full ">
-              {totalPrice} тенге{" "}
-            </Text>
+        <View className="absolute bottom-0 w-full">
+          <ScrollView className="max-h-40">
+            <View className="items-center px-4 flex flex-row justify-between  w-full bg-black-100 min-h-16 ">
+              <FlatList
+                data={sendData}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({ item }) => (
+                  <View className="w-full flex flex-row justify-between items-center h-12">
+                    <Text className="text-white text-2xl ">{item.name}</Text>
+                    <Text className="text-secondary ml-12 text-2xl ">
+                      {item.price} тенге{" "}
+                    </Text>
+                  </View>
+                )}
+              />
+            </View>
+          </ScrollView>
+          <View className=" items-center px-4 flex flex-row justify-between  w-full bg-black-200 h-20 ">
+            <View className="text-center  ">
+              <Text className="text-secondary  text-2xl ">
+                {totalPrice} тенге{" "}
+              </Text>
+            </View>
+
+            <View className="flex flex-row gap-4">
+              <TouchableOpacity
+                className="w-32 h-14 bg-red-500 flex items-center justify-center rounded-lg"
+                onPress={handleClearPrice}
+              >
+                <Text className="text-white">Очистить</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={addConfiguration}
+                className="w-32 h-14 bg-secondary flex items-center justify-center rounded-lg"
+              >
+                <Text className="text-center text-white">Сохранить</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-
-          <TouchableOpacity
-            className="w-24 h-10 bg-red-500 flex items-center justify-center rounded-lg"
-            onPress={handleClearPrice}
-          >
-            <Text className="text-white">Очистить цену</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={addConfiguration}
-            className="w-24 h-10 bg-secondary flex items-center justify-center rounded-lg"
-          >
-            <Text className="text-center">Сохранить</Text>
-          </TouchableOpacity>
         </View>
       )}
     </SafeAreaView>
