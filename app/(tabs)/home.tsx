@@ -48,6 +48,7 @@ const Home = () => {
         const sendDataFormatted = {
           configurations: sendData,
           userId: user.$id,
+          totalPrice: totalPrice,
         };
         const result = await addConfigurationToBase(sendDataFormatted);
         console.log("Данные успешно сохранены:", result);
@@ -76,13 +77,56 @@ const Home = () => {
               <Text className="text-2xl font-psemibold text-white ">
                 Конфигуратор ПК
               </Text>
-              <Text className="indent-5 font-pmedium text-center text-white my-7">
+              {/* <Text className="indent-5 font-pmedium text-center text-white my-7">
                 Позволяет собрать компьютер, о котором вы мечтали. Изменить
                 комплектацию представленных на сайте сборок, узнать цену онлайн,
                 сравнить характеристики. Оформить заказ и получить готовый ПК с
                 абсолютно бесплатной профессиональной сборкой. Продвинутый
                 онлайн-сервис для модификации ПК
-              </Text>
+              </Text> */}
+              <View className=" bottom-0 w-full">
+                <ScrollView className="max-h-40">
+                  <View className="items-center px-4 flex flex-row justify-between  w-full bg-black-100 min-h-16 ">
+                    <FlatList
+                      data={sendData}
+                      keyExtractor={(item, index) => index.toString()}
+                      renderItem={({ item }) => (
+                        <View className="w-full flex flex-row justify-between items-center h-12">
+                          <Text className="text-white text-2xl ">
+                            {item.name}
+                          </Text>
+                          <Text className="text-secondary ml-12 text-2xl ">
+                            {item.price} тенге{" "}
+                          </Text>
+                        </View>
+                      )}
+                    />
+                  </View>
+                </ScrollView>
+                <View className=" items-center px-4 flex flex-row justify-between  w-full bg-black-200 h-20 ">
+                  <View className="text-center  ">
+                    <Text className="text-secondary  text-2xl ">
+                      {totalPrice} тенге{" "}
+                    </Text>
+                  </View>
+
+                  <View className="flex flex-row gap-4">
+                    <TouchableOpacity
+                      className="w-32 h-14 bg-red-500 flex items-center justify-center rounded-lg"
+                      onPress={handleClearPrice}
+                    >
+                      <Text className="text-white">Очистить</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      onPress={addConfiguration}
+                      className="w-32 h-14 bg-secondary flex items-center justify-center rounded-lg"
+                    >
+                      <Text className="text-center text-white">Сохранить</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </View>
             </View>
 
             <SearchInput

@@ -9,8 +9,6 @@ const ComponentsPc = ({ onToggle, title, imageSource, data }: any) => {
     setIsOpen(!isOpen); // Переключение состояния
   };
 
-  const options = ["Intel Core i3", "Intel Core i5", "Intel Core i7"]; // Пример списка
-
   return (
     <View className="flex mt-6 w-full">
       <View className="flex flex-row justify-between ">

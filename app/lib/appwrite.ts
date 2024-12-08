@@ -1,5 +1,5 @@
-import { Account, Avatars, Client, Databases, ID } from "react-native-appwrite";
-import UUID from "react-native-uuid";
+import { Account, Client, Databases, ID } from "react-native-appwrite";
+
 export const appwriteConfig = {
   endpoint: "https://cloud.appwrite.io/v1",
   platform: "com.company.techbuilder",
@@ -19,10 +19,10 @@ client
 export const account = new Account(client);
 const databases = new Databases(client);
 
-export const addConfigurationToBase = (data: any) => {
+export const addConfigurationToBase = async (data: any) => {
   try {
     const formattedData = JSON.stringify(data);
-    const response = databases.createDocument(
+    const response = await databases.createDocument(
       appwriteConfig.databaseId,
       appwriteConfig.ConfiguratinCollectionId,
       ID.unique(),
@@ -43,7 +43,7 @@ export const createUser = async (
 ) => {
   try {
     try {
-      await account.create(UUID.v4(), email, password, username);
+      await account.create(ID.unique(), email, password, username);
     } catch (error: any) {
       console.warn("Warning: Error during account creation:", error.message);
       if (error.type === "account_already_exists") {
@@ -78,7 +78,7 @@ export async function singIn(email: string, password: string) {
       console.log("No active session found.");
     }
   } catch (error: any) {
-    console.error("Error during sign-in:", error.message || error);
+    console.error("Error during sign-in:", error.message);
     throw new Error(error.message || "Failed to sign in.");
   }
 
@@ -94,3 +94,15 @@ export async function singIn(email: string, password: string) {
     console.log(error);
   }
 }
+
+export const getConfigurations = async () => {
+  try {
+    const data = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.ConfiguratinCollectionId
+    );
+    return data.documents;
+  } catch (error) {
+    console.error(error);
+  }
+};
