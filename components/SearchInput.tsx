@@ -71,7 +71,7 @@ const SearchInput = ({ onToggle, initialQuery }: any) => {
     <View className="w-full">
       <View className="flex flex-row items-center space-x-4 w-full h-16 px-2.5 bg-black-100  border-2 border-black-200 focus:border-secondary">
         <TextInput
-          className="text-base mt-0.5 text-white flex-1 font-pregular"
+          className="text-base mt-0.5 placeholder:text-white text-white flex-1 font-pregular"
           placeholder="ПОИСК ЭЛЕМЕНТА ПО НОМЕРУ"
           value={searchText}
           onChangeText={setSearchText}
