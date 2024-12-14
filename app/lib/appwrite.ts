@@ -5,7 +5,7 @@ export const appwriteConfig = {
   platform: "com.company.techbuilder",
   projectId: "671f3cae0031331adafa",
   databaseId: "674ba93100294e10a9bd",
-  ConfiguratinCollectionId: "674ca40b0007b7b36ca0",
+  configuratinCollectionId: "674ca40b0007b7b36ca0",
   storageId: "674b21310023fc97d80d",
 };
 
@@ -24,7 +24,7 @@ export const addConfigurationToBase = async (data: any) => {
     const formattedData = JSON.stringify(data);
     const response = await databases.createDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.ConfiguratinCollectionId,
+      appwriteConfig.configuratinCollectionId,
       ID.unique(),
       {
         cpu: formattedData,
@@ -67,16 +67,16 @@ export const createUser = async (
 
 export async function singIn(email: string, password: string) {
   try {
-    const currentSession = await account.get();
-    console.log("Current session:", currentSession);
+    // const currentSession = await account.get();
+    // console.log("Current session:", currentSession);
 
-    if (currentSession) {
-      console.log("Previous session exists. Deleting...");
-      await account.deleteSession("current");
-      console.log("Previous session deleted.");
-    } else {
-      console.log("No active session found.");
-    }
+    // if (currentSession) {
+    // console.log("Previous session exists. Deleting...");
+    await account.deleteSession("current");
+    console.log("Previous session deleted.");
+    // } else {
+    //   console.log("No active session found.");
+    // }
   } catch (error: any) {
     console.error("Error during sign-in:", error.message);
     throw new Error(error.message || "Failed to sign in.");
@@ -99,7 +99,7 @@ export const getConfigurations = async () => {
   try {
     const data = await databases.listDocuments(
       appwriteConfig.databaseId,
-      appwriteConfig.ConfiguratinCollectionId
+      appwriteConfig.configuratinCollectionId
     );
     return data.documents;
   } catch (error) {

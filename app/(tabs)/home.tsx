@@ -77,14 +77,14 @@ const Home = () => {
               <Text className="text-2xl font-psemibold text-white ">
                 Конфигуратор ПК
               </Text>
-              {/* <Text className="indent-5 font-pmedium text-center text-white my-7">
+              <Text className="indent-5 font-pmedium text-center text-white my-7">
                 Позволяет собрать компьютер, о котором вы мечтали. Изменить
                 комплектацию представленных на сайте сборок, узнать цену онлайн,
                 сравнить характеристики. Оформить заказ и получить готовый ПК с
                 абсолютно бесплатной профессиональной сборкой. Продвинутый
                 онлайн-сервис для модификации ПК
-              </Text> */}
-              <View className=" bottom-0 w-full">
+              </Text>
+              {/* <View className=" bottom-0 w-full">
                 <ScrollView className="max-h-40">
                   <View className="items-center px-4 flex flex-row justify-between  w-full bg-black-100 min-h-16 ">
                     <FlatList
@@ -126,7 +126,7 @@ const Home = () => {
                     </TouchableOpacity>
                   </View>
                 </View>
-              </View>
+              </View> */}
             </View>
 
             <SearchInput
