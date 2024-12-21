@@ -3,10 +3,10 @@ import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import { icons } from "../constants";
 
 const ComponentsPc = ({ onToggle, title, imageSource, data }: any) => {
-  const [isOpen, setIsOpen] = useState(false); // Состояние для управления списком и поворотом
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
-    setIsOpen(!isOpen); // Переключение состояния
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -16,9 +16,6 @@ const ComponentsPc = ({ onToggle, title, imageSource, data }: any) => {
           <Image className="mr-4 ml-2" source={imageSource} />
           <Text className="text-white ">{title}</Text>
         </View>
-        {/* <View className="flex flex-row items-center">
-          <Image source={icons.line} />
-        </View> */}
       </View>
 
       <TouchableOpacity

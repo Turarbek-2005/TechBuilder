@@ -30,9 +30,22 @@ export const addConfigurationToBase = async (data: any) => {
         cpu: formattedData,
       }
     );
+
+    // Обновление данных профиля пользователя
+    const user = await account.get();
+    const updatedPreferences = {
+      ...user.prefs,
+      lastConfiguration: data,
+    };
+    await account.updatePrefs(updatedPreferences);
+
+    console.log("Конфигурация добавлена и профиль обновлён.");
     return response;
   } catch (error: any) {
-    console.log(error);
+    console.error(
+      "Ошибка при добавлении конфигурации:",
+      error.message || error
+    );
   }
 };
 
@@ -67,16 +80,8 @@ export const createUser = async (
 
 export async function singIn(email: string, password: string) {
   try {
-    // const currentSession = await account.get();
-    // console.log("Current session:", currentSession);
-
-    // if (currentSession) {
-    // console.log("Previous session exists. Deleting...");
     await account.deleteSession("current");
     console.log("Previous session deleted.");
-    // } else {
-    //   console.log("No active session found.");
-    // }
   } catch (error: any) {
     console.error("Error during sign-in:", error.message);
     throw new Error(error.message || "Failed to sign in.");

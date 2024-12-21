@@ -3,7 +3,6 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { images } from "../constants";
 
 const Configuration = ({ onToggle, data, total }: any) => {
-  // console.log(data);
   return (
     <View className="flex items-center w-80 bg-black-100 h-conConfiguration rounded-2xl border-2 border-black-200 mt-5 pt-2 pb-7">
       <Image source={images.Configuration} resizeMode="contain" />

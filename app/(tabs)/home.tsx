@@ -41,6 +41,15 @@ const Home = () => {
     setSendData([]);
   };
 
+  const getConfigurations = async () => {
+    try {
+      const configurations = await getConfigurations();
+      setData(configurations);
+    } catch (error) {
+      console.error("Ошибка при загрузке конфигураций:", error);
+    }
+  };
+
   const addConfiguration = async () => {
     const user = await account.get();
     try {

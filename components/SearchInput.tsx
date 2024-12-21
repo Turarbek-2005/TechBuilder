@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { router, usePathname } from "expo-router";
 import {
   View,
   TouchableOpacity,
@@ -27,8 +26,7 @@ const SearchInput = ({ onToggle, initialQuery }: any) => {
     loadData();
   }, []);
 
-  // Маппинг категорий для компонентов
-  const componentCategories = {
+  const componentCategories: any = {
     CPU: "CPU",
     cooling: "Cooling",
     motherboard: "Motherboard",
@@ -48,7 +46,6 @@ const SearchInput = ({ onToggle, initialQuery }: any) => {
     headset: "Headset",
   };
 
-  // Собираем все данные из различных компонентов
   const allData = Object.keys(componentCategories).reduce(
     (acc: any, key: any) => {
       const category = componentCategories[key];
@@ -62,7 +59,6 @@ const SearchInput = ({ onToggle, initialQuery }: any) => {
     []
   );
 
-  // Фильтрация данных на основе текста поиска
   const filteredData = allData.filter((item) =>
     JSON.stringify(item).toLowerCase().includes(searchText.toLowerCase())
   );
@@ -72,7 +68,7 @@ const SearchInput = ({ onToggle, initialQuery }: any) => {
       <View className="flex flex-row items-center space-x-4 w-full h-16 px-2.5 bg-black-100  border-2 border-black-200 focus:border-secondary">
         <TextInput
           className="text-base mt-0.5 placeholder:text-white text-white flex-1 font-pregular"
-          placeholder="ПОИСК ЭЛЕМЕНТА ПО НОМЕРУ"
+          placeholder="ПОИСК ЭЛЕМЕНТА ПО ИМЕНИ"
           value={searchText}
           onChangeText={setSearchText}
         />

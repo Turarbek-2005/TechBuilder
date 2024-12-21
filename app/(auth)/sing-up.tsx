@@ -72,7 +72,7 @@ const SingUp = () => {
               Have a account already?
             </Text>
             <Link
-              href="/home"
+              href="/sing-in"
               className="text-lg text-secondary font-psemibold"
             >
               Sing in
