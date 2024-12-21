@@ -66,25 +66,11 @@ const Profile = () => {
     setItemData(null);
   };
 
-  const logout = async () => {
-    try {
-      await account.deleteSession("current");
-      console.log("Previous session deleted.");
-    } catch (error: any) {
-      console.error("Error during sign-in:", error.message);
-      throw new Error(error.message || "Failed to sign in.");
-    }
-  };
-
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
         <View className="flex items-center h-full mx-12 my-9 relative">
-          <Link
-            // onPress={logout}
-            href="/sing-in"
-            className="absolute right-0 -top-4"
-          >
+          <Link href="/sing-in" className="absolute right-0 -top-4">
             <Image source={icons.logout} resizeMode="contain" className="w-6" />
           </Link>
           <View className="flex items-center">

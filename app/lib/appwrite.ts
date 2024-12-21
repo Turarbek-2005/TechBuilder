@@ -79,12 +79,12 @@ export const createUser = async (
 };
 
 export async function singIn(email: string, password: string) {
-  // try {
-  //   await account.deleteSession("current");
-  //   console.log("Previous session deleted.");
-  // } catch (error: any) {
-  //   console.error("Error during sign-in:", error.message);
-  // }
+  try {
+    await account.deleteSession("current");
+    console.log("Previous session deleted.");
+  } catch (error: any) {
+    console.error("Error during sign-in:", error.message);
+  }
 
   try {
     const session = await account.createEmailPasswordSession(email, password);
