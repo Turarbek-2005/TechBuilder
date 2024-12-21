@@ -2,7 +2,10 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import { Tabs, Redirect } from "expo-router";
 import { icons } from "../../constants";
 import React from "react";
-
+import { LogBox } from "react-native";
+LogBox.ignoreLogs([
+  "VirtualizedLists should never be nested", // Указание текста предупреждения
+]);
 const TabIcon = ({ icon, color, name, focused }: any) => {
   return (
     <View className="flex items-center justify-center w-screen">

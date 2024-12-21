@@ -10,6 +10,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useEffect, useState } from "react";
 import { images } from "../../constants";
 import { icons } from "../../constants";
+
 import SearchInput from "../../components/SearchInput";
 import ComponentsPc from "../../components/ComponentsPc";
 import { account, addConfigurationToBase } from "../lib/appwrite";
@@ -231,7 +232,7 @@ const Home = () => {
         </View>
       </ScrollView>
       {isOpen && (
-        <View className="absolute bottom-0 w-full">
+        <View className="absolute  bottom-0 w-full">
           <ScrollView className="max-h-40">
             <View className="items-center px-4 flex flex-row justify-between  w-full bg-black-100 min-h-16 ">
               <FlatList
@@ -239,7 +240,7 @@ const Home = () => {
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => (
                   <View className="w-full flex flex-row justify-between items-center h-12">
-                    <Text className="text-white text-2xl ">{item.name}</Text>
+                    <Text className="text-white text-lg ">{item.name}</Text>
                     <Text className="text-secondary ml-12 text-2xl ">
                       {item.price} тенге{" "}
                     </Text>

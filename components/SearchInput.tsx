@@ -79,7 +79,6 @@ const SearchInput = ({ onToggle, initialQuery }: any) => {
           <View className="flex flex-row items-center space-x-4 w-full max-h-32 px-2.5 bg-black-100  border-2 border-black-200 focus:border-secondary">
             <FlatList
               data={filteredData}
-              className=""
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) => (
                 <TouchableOpacity

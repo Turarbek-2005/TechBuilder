@@ -118,7 +118,7 @@ const Profile = () => {
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => (
                   <View className="w-full flex flex-row justify-between items-center h-12">
-                    <Text className="text-white text-xl ">{item.name}</Text>
+                    <Text className="text-white text-lg ">{item.name}</Text>
                     <Text className="text-secondary ml-12 text-2xl">
                       {item.price} тенге{" "}
                     </Text>
