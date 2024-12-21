@@ -29,7 +29,6 @@ const ComponentsPc = ({ onToggle, title, imageSource, data }: any) => {
         />
       </TouchableOpacity>
 
-      {/* Список */}
       {isOpen && (
         <View className="border-2 border-black-200 ">
           <FlatList
