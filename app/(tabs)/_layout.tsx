@@ -3,9 +3,7 @@ import { Tabs, Redirect } from "expo-router";
 import { icons } from "../../constants";
 import React from "react";
 import { LogBox } from "react-native";
-LogBox.ignoreLogs([
-  "VirtualizedLists should never be nested", // Указание текста предупреждения
-]);
+LogBox.ignoreLogs(["VirtualizedLists should never be nested"]);
 const TabIcon = ({ icon, color, name, focused }: any) => {
   return (
     <View className="flex items-center justify-center w-screen">
@@ -35,8 +33,7 @@ const TabLayout = () => {
           tabBarShowLabel: false,
           tabBarStyle: {
             backgroundColor: "#161622",
-            borderTopWidth: 1,
-            borderTopColor: "#232533",
+            borderTopWidth: 0,
             height: 84,
             paddingTop: 18,
           },

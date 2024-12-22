@@ -2,15 +2,22 @@ import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import { icons } from "../constants";
 
-const ComponentsPc = ({ onToggle, title, imageSource, data }: any) => {
+const ComponentsPc = ({
+  onToggle,
+  onToggleSee,
+  title,
+  imageSource,
+  data,
+}: any) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSee, setIsSee] = useState(false);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <View className="flex mt-6 w-full">
+    <View className="flex mt-6 w-full ">
       <View className="flex flex-row justify-between ">
         <View className="flex flex-row justify-between alagine-center text-center items-center mb-5">
           <Image className="mr-4 ml-2" source={imageSource} />
@@ -36,10 +43,15 @@ const ComponentsPc = ({ onToggle, title, imageSource, data }: any) => {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <TouchableOpacity
-                className="px-4 py-2  bg-black-100"
+                className="px-4 py-2 bg-black-100 "
                 onPress={() => onToggle(item)}
               >
-                <Text className="text-white">{item.name}</Text>
+                <View className="flex flex-row justify-between items-center">
+                  <Text className="text-white">{item.name}</Text>
+                  <TouchableOpacity onPress={() => onToggleSee(item)}>
+                    <Image source={icons.MaterialSymbolsInfo} />
+                  </TouchableOpacity>
+                </View>
               </TouchableOpacity>
             )}
           />

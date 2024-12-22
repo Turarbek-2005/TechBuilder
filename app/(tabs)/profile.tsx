@@ -72,6 +72,7 @@ const Profile = () => {
         onScroll={({ nativeEvent }) => {
           if (nativeEvent.contentOffset.y <= 0) {
             fetchData();
+            console.log("Scrolled up! Fetching data...");
           }
         }}
         scrollEventThrottle={16}

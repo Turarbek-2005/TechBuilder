@@ -32,8 +32,13 @@ const Home = () => {
 
   const [totalPrice, setTotalPrice] = useState(0);
   const [sendData, setSendData] = useState<Array<any>>([]);
+  const [isSee, setIsSee] = useState(false);
+  const [modalData, setModalData] = useState<any>();
+  const handleInfo = (item: any) => {
+    setIsSee(!isSee);
+    setModalData(item);
+  };
 
-  // Функция для добавления цены к общей сумме
   const handleAddPrice = (item: any) => {
     setIsOpen(true);
     setTotalPrice((prevPrice) => prevPrice + item.price);
@@ -68,7 +73,7 @@ const Home = () => {
     }
   };
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-primary h-full relative">
       <ScrollView>
         <View className="flex px-4 pb-8 space-y-6 relative">
           <View className="w-full flex items-center h-full px-4 ">
@@ -99,84 +104,98 @@ const Home = () => {
 
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.CPU}
               title="Процессор"
               imageSource={icons.iconCpu}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.cooling}
               title="Охлаждение"
               imageSource={icons.Cooling}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.motherboard}
               title="Материнская плата"
               imageSource={icons.Motherboard}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.RAM}
               title="Оперативная память"
               imageSource={icons.RAM}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.GPU}
               title="Видеокарта"
               imageSource={icons.VideoCard}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.hardDisk}
               title="Жёсткий диск"
               imageSource={icons.HardDrive}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.SSD}
               title="SSD"
               imageSource={icons.SSD}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.fans}
               title="Вентиляторы"
               imageSource={icons.Fans}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.frame}
               title="Корпус"
               imageSource={icons.Frame}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.powerUnit}
               title="Блок питания"
               imageSource={icons.PowerUnit}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.OS}
               title="Операционная система"
               imageSource={icons.Os}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.mouse}
               title="Мышь"
               imageSource={icons.Mouse}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.keyboard}
               title="Клавиатура"
               imageSource={icons.Keyboard}
             />
             <ComponentsPc
               onToggle={(item: any) => handleAddPrice(item)}
+              onToggleSee={(item: any) => handleInfo(item)}
               data={data?.components.monitor}
               title="Монитор"
               imageSource={icons.Monitor}
@@ -223,6 +242,30 @@ const Home = () => {
               >
                 <Text className="text-center text-white">Сохранить</Text>
               </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      )}
+      {isSee && (
+        <View className="w-full h-screen bg-[rgba(0,0,0,0.8)] absolute flex justify-center items-center">
+          <View className="w-3/4 h-auto  relative rounded-lg p-3  bg-black-100 ">
+            <TouchableOpacity
+              className="w-8 h-8 z-10 ml-auto bg-red-500 flex absolute right-2 top-2 items-center justify-center rounded-lg"
+              onPress={handleInfo}
+            >
+              <Text className="text-white text-4xl">
+                <Image source={icons.IonClose} />
+              </Text>
+            </TouchableOpacity>
+            <View>
+              <Text className="text-3xl  font-medium text-secondary">
+                Характеристики:
+              </Text>
+              {Object.entries(modalData).map(([key, value], index) => (
+                <Text key={index} className="text-lg font-medium text-white">
+                  {`${key} - ${value}`}
+                </Text>
+              ))}
             </View>
           </View>
         </View>

@@ -29,9 +29,12 @@ import Mouse from "../assets/icons/Mouse.png";
 import Keyboard from "../assets/icons/Keyboard.png";
 import Monitor from "../assets/icons/Monitor.png";
 import About from "../assets/icons/About.png";
+import MaterialSymbolsInfo from "../assets/icons/MaterialSymbolsInfo.png";
+import IonClose from "../assets/icons/IonClose.png";
 
 export default {
   play,
+  IonClose,
   saved,
   home,
   plus,
@@ -61,4 +64,5 @@ export default {
   Keyboard,
   Monitor,
   Motherboard,
+  MaterialSymbolsInfo,
 };
