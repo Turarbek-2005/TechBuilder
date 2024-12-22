@@ -22,9 +22,14 @@ const SingIn = () => {
     setIsSubmittig(true);
 
     try {
-      const result = await singIn(form.email, form.password);
+      const result: any = await singIn(form.email, form.password);
       console.log(result);
-      router.replace("/home");
+      if (result) {
+        console.log("Login successful:", result);
+        router.replace("/home");
+      } else {
+        Alert.alert("email или пароль не верны");
+      }
     } catch (error: any) {
       Alert.alert("Error", error.message);
     } finally {

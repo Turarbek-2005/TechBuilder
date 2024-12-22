@@ -6,9 +6,8 @@ const Create = () => {
   return (
     <SafeAreaView className="bg-primary h-screen px-4 pt-7 pb-24">
       <ScrollView>
-        <Text className="text-white text-[29.84px] w-56 leading-10 mb-9">
-          Важно! Сборка
-          <Text className="leading-10">компьютера бесплатная.</Text>
+        <Text className="text-white text-[29.84px] w-72 leading-10 mb-9">
+          Важно! Сборка компьютера бесплатная.
         </Text>
 
         <Text className="text-white text-[12px] mb-9 leading-6 w-11/12">
