@@ -77,7 +77,7 @@ const Profile = () => {
         }}
         scrollEventThrottle={16}
       >
-        <View className="flex items-center h-full mx-12 my-9 relative">
+        <View className="flex items-center min-h-[83vh] mx-12 my-9 relative">
           <Link href="/sing-in" className="absolute right-0 -top-4">
             <Image source={icons.logout} resizeMode="contain" className="w-6" />
           </Link>
