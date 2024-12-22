@@ -17,6 +17,7 @@ const SingIn = () => {
   const submit = async () => {
     if (!form.email || !form.password) {
       Alert.alert("Error", "Please fill in all fields");
+      return;
     }
     setIsSubmittig(true);
 
@@ -57,7 +58,7 @@ const SingIn = () => {
             otherStyles="mt-7"
           />
           <CustomButton
-            title="Sing In"
+            title="Log in"
             handlePress={submit}
             containerStyles="mt-7"
             isLoading={isSubmittig}

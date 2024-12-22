@@ -6,7 +6,6 @@ export const appwriteConfig = {
   projectId: "671f3cae0031331adafa",
   databaseId: "674ba93100294e10a9bd",
   configuratinCollectionId: "674ca40b0007b7b36ca0",
-  storageId: "674b21310023fc97d80d",
 };
 
 const client = new Client();
@@ -31,15 +30,6 @@ export const addConfigurationToBase = async (data: any) => {
       }
     );
 
-    // Обновление данных профиля пользователя
-    const user = await account.get();
-    const updatedPreferences = {
-      ...user.prefs,
-      lastConfiguration: data,
-    };
-    await account.updatePrefs(updatedPreferences);
-
-    console.log("Конфигурация добавлена и профиль обновлён.");
     return response;
   } catch (error: any) {
     console.error(
@@ -61,8 +51,6 @@ export const createUser = async (
       console.warn("Warning: Error during account creation:", error.message);
       if (error.type === "account_already_exists") {
         console.log("Account already exists, proceeding...");
-      } else {
-        throw error;
       }
     }
 
@@ -74,7 +62,6 @@ export const createUser = async (
     }
   } catch (error: any) {
     console.error("Critical Error:", error.message || error);
-    throw new Error(error.message || error);
   }
 };
 

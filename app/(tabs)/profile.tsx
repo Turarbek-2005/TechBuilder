@@ -38,21 +38,21 @@ const Profile = () => {
     }
   }, [authStore]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await getConfigurations();
-        if (result) {
-          const parsedData = result.map((item) => {
-            const parsed = JSON.parse(item.cpu);
-            return { ...item, cpu: { ...parsed } };
-          });
-          setData(parsedData);
-        }
-      } catch (error) {
-        console.log("Error fetching configurations:", error);
+  const fetchData = async () => {
+    try {
+      const result = await getConfigurations();
+      if (result) {
+        const parsedData = result.map((item) => {
+          const parsed = JSON.parse(item.cpu);
+          return { ...item, cpu: { ...parsed } };
+        });
+        setData(parsedData);
       }
-    };
+    } catch (error) {
+      console.log("Error fetching configurations:", error);
+    }
+  };
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -68,7 +68,14 @@ const Profile = () => {
 
   return (
     <SafeAreaView className="bg-primary h-full">
-      <ScrollView>
+      <ScrollView
+        onScroll={({ nativeEvent }) => {
+          if (nativeEvent.contentOffset.y <= 0) {
+            fetchData();
+          }
+        }}
+        scrollEventThrottle={16}
+      >
         <View className="flex items-center h-full mx-12 my-9 relative">
           <Link href="/sing-in" className="absolute right-0 -top-4">
             <Image source={icons.logout} resizeMode="contain" className="w-6" />
@@ -110,7 +117,7 @@ const Profile = () => {
         </View>
       </ScrollView>
       {isOpen && itemData && (
-        <View className="bottom-0 w-full">
+        <View className="w-full">
           <ScrollView className="max-h-40">
             <View className="items-center px-4 flex flex-row justify-between w-full bg-black-100 min-h-16">
               <FlatList

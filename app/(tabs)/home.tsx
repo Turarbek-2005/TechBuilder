@@ -13,7 +13,11 @@ import { icons } from "../../constants";
 
 import SearchInput from "../../components/SearchInput";
 import ComponentsPc from "../../components/ComponentsPc";
-import { account, addConfigurationToBase } from "../lib/appwrite";
+import {
+  account,
+  addConfigurationToBase,
+  getConfigurations,
+} from "../lib/appwrite";
 const Home = () => {
   const [data, setData] = useState<any>(null);
   const loadData = () => {
@@ -36,19 +40,11 @@ const Home = () => {
     setSendData((prevData) => [...prevData, item]);
     console.log(sendData);
   };
+
   const handleClearPrice = () => {
     setIsOpen(false);
     setTotalPrice(0);
     setSendData([]);
-  };
-
-  const getConfigurations = async () => {
-    try {
-      const configurations = await getConfigurations();
-      setData(configurations);
-    } catch (error) {
-      console.error("Ошибка при загрузке конфигураций:", error);
-    }
   };
 
   const addConfiguration = async () => {
@@ -72,9 +68,9 @@ const Home = () => {
     }
   };
   return (
-    <SafeAreaView className="bg-primary">
+    <SafeAreaView className="bg-primary h-full">
       <ScrollView>
-        <View className="flex px-4 pb-8 space-y-6 ">
+        <View className="flex px-4 pb-8 space-y-6 relative">
           <View className="w-full flex items-center h-full px-4 ">
             <View className=" absolute">
               <Image source={images.bgFon} resizeMode="contain" />
@@ -94,49 +90,6 @@ const Home = () => {
                 абсолютно бесплатной профессиональной сборкой. Продвинутый
                 онлайн-сервис для модификации ПК
               </Text>
-              {/* <View className=" bottom-0 w-full">
-                <ScrollView className="max-h-40">
-                  <View className="items-center px-4 flex flex-row justify-between  w-full bg-black-100 min-h-16 ">
-                    <FlatList
-                      data={sendData}
-                      keyExtractor={(item, index) => index.toString()}
-                      renderItem={({ item }) => (
-                        <View className="w-full flex flex-row justify-between items-center h-12">
-                          <Text className="text-white text-2xl ">
-                            {item.name}
-                          </Text>
-                          <Text className="text-secondary ml-12 text-2xl ">
-                            {item.price} тенге{" "}
-                          </Text>
-                        </View>
-                      )}
-                    />
-                  </View>
-                </ScrollView>
-                <View className=" items-center px-4 flex flex-row justify-between  w-full bg-black-200 h-20 ">
-                  <View className="text-center  ">
-                    <Text className="text-secondary  text-2xl ">
-                      {totalPrice} тенге{" "}
-                    </Text>
-                  </View>
-
-                  <View className="flex flex-row gap-4">
-                    <TouchableOpacity
-                      className="w-32 h-14 bg-red-500 flex items-center justify-center rounded-lg"
-                      onPress={handleClearPrice}
-                    >
-                      <Text className="text-white">Очистить</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                      onPress={addConfiguration}
-                      className="w-32 h-14 bg-secondary flex items-center justify-center rounded-lg"
-                    >
-                      <Text className="text-center text-white">Сохранить</Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              </View> */}
             </View>
 
             <SearchInput
@@ -232,7 +185,7 @@ const Home = () => {
         </View>
       </ScrollView>
       {isOpen && (
-        <View className="absolute  bottom-0 w-full">
+        <View className="w-full">
           <ScrollView className="max-h-40">
             <View className="items-center px-4 flex flex-row justify-between  w-full bg-black-100 min-h-16 ">
               <FlatList
